@@ -1,0 +1,25 @@
+{
+  "name": "harmless-changes",
+  "version": "0.0.1",
+  "description": "Ignore unnecessary build steps if changes are harmless to making builds faster",
+  "main": "index.sh",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dollarshaveclub/harmless-changes.git"
+  },
+  "keywords": [
+    "shell",
+    "ci",
+    "continuous",
+    "delivery"
+  ],
+  "author": "Jeff Wainwright <yowainwright@gmail.com> (https://jeffry.in)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dollarshaveclub/harmless-changes/issues"
+  },
+  "homepage": "https://github.com/dollarshaveclub/harmless-changes#readme"
+}
