@@ -6,6 +6,7 @@
 */
 
 module.exports = (gitBranch, ciBranch) => {
+  console.log('Test 1: ', gitBranch, ciBranch)
   if (typeof gitBranch === 'undefined') {
     console.error(`Harmless Changes: ${gitBranch} is undefined.`)
     process.exit(1)
@@ -15,5 +16,5 @@ module.exports = (gitBranch, ciBranch) => {
   } else if (gitBranch === ciBranch) {
     console.error(`Harmless Changes: The git branch ${gitBranch} matches the ci branch ${ciBranch}. Better Test!`)
     process.exit(1)
-  } else return
+  } else console.warn(`Harmless Changes: The git branch ${gitBranch} does not match the ci branch ${ciBranch}. Moving on!`)
 } 
