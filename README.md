@@ -16,7 +16,7 @@ Harmless changes is a simple script that helps ignore unneeded build steps if co
 
 ## Summary
 
-CI build steps can test many things, but what if the Pull Requests to a `master` (or another default) branch contain only for changes to a repository's README or a slight change to an image? Harmless Changes checks if the **only** changes that were made within a Pull Request were for items that can be ignored in CI via a `.ciingore` file. CI build steps can be exited if the Harmless Changes script finds that only files within the `.ciignore` file were ignored.
+CI build steps can test many things, but what if a Pull Request to a `master` (or another default) branch contains only changes to a repository's README or a slight change to an image? Harmless Changes checks if the **only** changes that were made within a Pull Request were for items that can be ignored in CI via a `.ciingore` file. CI build steps can be exited if the Harmless Changes script finds that only files within the `.ciignore` file were ignored.
 
 ----
 
