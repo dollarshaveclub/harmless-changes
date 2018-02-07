@@ -2,6 +2,8 @@
 
 Harmless changes is a simple bash script that helps ignore unneeded build steps if code changes are harmless. This utility can speed up CI build times! 🏎 💨
 
+** ⚠️ NOTE:** This code is currently untested. Tests are in progress! 
+
 ---
 
 <p align="center">
