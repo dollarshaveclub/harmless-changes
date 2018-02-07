@@ -1,10 +1,11 @@
 # Harmless Changes
 
-Harmless changes is a simple bash script that ingores tests if repository changes are harmless. This can greatly speed up repository build times by ignore unneedded tests and other build steps.
+Harmless changes is a simple bash script that helps ignore unneeded build steps if code changes are harmless. This utility can speed up CI build times! 🏎 💨
 
 ---
 
 <p align="center">
+  <a href="#summary"></a>&nbsp;&nbsp;
   <a href="#install">Install</a>&nbsp;&nbsp;
   <a href="#install">Use</a>&nbsp;&nbsp;
   <a href="#contributing">Contributing</a>&nbsp;&nbsp;
@@ -12,6 +13,10 @@ Harmless changes is a simple bash script that ingores tests if repository change
 </p>
 
 ---
+
+## Summary
+
+CI build steps can test many things, but what if the Pull Request to a `master` branch contains only for changes to a repository's README or a slight change to an image? Harmless Changes checks if the **only** changes that were made within a Pull Request were for items that can be ignored in CI via a `.ciingore` file. CI build steps can be exited if the Harmless Changes script finds that only files within the `.ciignore` file were ignored.
 
 ## Install
 
@@ -30,7 +35,7 @@ The documentation below provides steps to using harmless changes
 
 ### Make a `.ciignore`
 
-The `.ciignore` file is used to ingore certain file in the ci (build) process
+The `.ciignore` file is used to ingore certain files during the ci (build) process
 
 In a terminal:
 ```bash
@@ -39,7 +44,29 @@ touch .ciignore
 
 ### Check if changes are harmless
 
-With ci or build steps, configure ci to working according to whether harmless changes returns `true` or `false`.
+With CI build steps in **[CircleCI]()** or **[Travis]()**, configure CI to work according to whether harmless exits with a 1 or 0.
+
+Add a script to run harmless changes, in example:
+
+```bash
+if npx harmless-changes; then
+  exit 0
+ fi
+
+# or 
+# if an older version of NPM is being used
+if ./node_modules/.bin/harmless-changes; then
+ exit 0
+fi
+
+# or, finally
+# if Harmless Changes has not been installed with NPM (the code below is an assumed path)
+if ./harmless-changes.sh; then
+  exit 0
+fi
+```
+
+CI will/can now exit if only harmless changes were made.
 
 ## Contributing
 

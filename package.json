@@ -1,7 +1,7 @@
 {
   "name": "harmless-changes",
   "version": "0.0.1",
-  "description": "Ignore unnecessary build steps if changes are harmless to making builds faster",
+  "description": "Helps ignore unnecessary CI build steps if changes are harmless",
   "main": "index.sh",
   "scripts": {
     "test": "test"
