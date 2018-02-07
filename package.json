@@ -1,6 +1,6 @@
 {
   "name": "harmless-changes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Helps ignore unnecessary CI build steps if changes are harmless",
   "main": "index.sh",
   "bin": {
