@@ -5,9 +5,9 @@ Harmless changes is a simple bash script that helps ignore unneeded build steps 
 ---
 
 <p align="center">
-  <a href="#summary"></a>&nbsp;&nbsp;
+  <a href="#summary">Summary</a>&nbsp;&nbsp;
   <a href="#install">Install</a>&nbsp;&nbsp;
-  <a href="#install">Use</a>&nbsp;&nbsp;
+  <a href="#use">Use</a>&nbsp;&nbsp;
   <a href="#contributing">Contributing</a>&nbsp;&nbsp;
   <a href="#thanks">Thanks</a>
 </p>
@@ -17,6 +17,8 @@ Harmless changes is a simple bash script that helps ignore unneeded build steps 
 ## Summary
 
 CI build steps can test many things, but what if the Pull Request to a `master` branch contains only for changes to a repository's README or a slight change to an image? Harmless Changes checks if the **only** changes that were made within a Pull Request were for items that can be ignored in CI via a `.ciingore` file. CI build steps can be exited if the Harmless Changes script finds that only files within the `.ciignore` file were ignored.
+
+----
 
 ## Install
 
@@ -28,6 +30,8 @@ NPM
 ```
 npm i harmless-changes --save-dev
 ```
+
+----
 
 ## Use
 
@@ -68,11 +72,15 @@ fi
 
 CI will/can now exit if only harmless changes were made.
 
+----
+
 ## Contributing
 
 Please contribute to Harmless Changes by filing an [issue](/issues),responding to issues, or reaching out socially—etc.
 
 Harmless Changes is a utility. It may not be beneficial to many repositories if builds are simple. However, as test grow, and project builds become more complex, Harmless Changes is a simple tool that can save lots of time!
+
+----
 
 ## Thanks
 

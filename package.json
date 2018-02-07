@@ -3,8 +3,11 @@
   "version": "0.0.1",
   "description": "Helps ignore unnecessary CI build steps if changes are harmless",
   "main": "index.sh",
+  "bin": {
+    "harmless-changes": "./index.sh"
+  },
   "scripts": {
-    "test": "test"
+    "harmless-changes": "./index.sh" 
   },
   "repository": {
     "type": "git",
@@ -21,5 +24,6 @@
   "bugs": {
     "url": "https://github.com/dollarshaveclub/harmless-changes/issues"
   },
-  "homepage": "https://github.com/dollarshaveclub/harmless-changes#readme"
+  "homepage": "https://github.com/dollarshaveclub/harmless-changes#readme",
+  "devDependencies": {}
 }
