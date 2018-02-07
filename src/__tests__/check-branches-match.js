@@ -1,16 +1,11 @@
-const assert = require('assert')
-
 const checkBranchesMatch = require('../check-branches-match')
+const errorCallback = () => { expect(1).toBe(1) }
 
-test('it should continue if branches dont match', (done) => {
-  const branch = 'master'
-  const ciBranch = 'not-master'
-  checkBranchesMatch(branch, ciBranch)
+test('it should continue if branches don\'t match', (done) => {
+  checkBranchesMatch('master', 'not-master', errorCallback)
   done()
 })
 
-// test('it should exit if branches match', () => {
-//   const branch = 'master'
-//   const ciBranch = 'master'
-//   checkBranchesMatch(branch, ciBranch)
-// })
+test('it should exit if branches match', () => {
+  checkBranchesMatch('master', 'master', errorCallback)
+})

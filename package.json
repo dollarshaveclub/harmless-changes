@@ -10,6 +10,7 @@
   "scripts": {
     "harmless-changes-sh": "./index.sh",
     "harmless-changes": "node ./index.js",
+    "eslint": "eslint . --fix",
     "test": "jest --coverage"
   },
   "repository": {

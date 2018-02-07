@@ -5,12 +5,14 @@ const checkForHarmfulChanges = require('./src/check-for-harmful-changes')
 const branch = 'master'
 const ciBranch = 'not-master'
 
+const exit = () => process.exit(1)
+
 generateArray('cat .ciignore', (arr) => {
   const ciignoreArr = arr
   generateArray(`git diff-tree --no-commit-id --name-only -r origin/${branch}..HEAD`, (arr) => {
-    const gitChangesArr = arr 
+    const gitChangesArr = arr
     // console.log(ciignoreArr, gitChangesArr)
-    checkBranchesMatch(branch, ciBranch)
-    checkForHarmfulChanges(gitChangesArr, ciignoreArr)
+    checkBranchesMatch(branch, ciBranch, exit)
+    checkForHarmfulChanges(gitChangesArr, ciignoreArr, exit)
   })
 })

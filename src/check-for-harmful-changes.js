@@ -7,23 +7,23 @@
 
 require('@babel/polyfill')
 
-module.exports = (changedFilesArray, ciignoreFilesArray) => {
+module.exports = (changedFilesArray, ciignoreFilesArray, errorCallback) => {
   if (typeof ciignoreFilesArray === 'undefined') {
     console.error(`Harmless Changes: ${ciignoreFilesArray} is undefined.`)
-    process.exit(1)
+    return errorCallback()
   } else if (!Array.isArray(ciignoreFilesArray)) {
     console.error(`Harmless Changes: ${ciignoreFilesArray} is not an Array.`)
-    process.exit(1)
+    return errorCallback()
   } else if (typeof changedFilesArray === 'undefined') {
     console.error(`Harmless Changes: ${changedFilesArray} is undefined.`)
-    process.exit(1)
+    errorCallback()
   } else if (!Array.isArray(changedFilesArray)) {
     console.error(`Harmless Changes: ${changedFilesArray} is not an Array.`)
-    process.exit(1)
+    return errorCallback()
   }
   const potentialHarmfulChangesArray = changedFilesArray.filter(file => !ciignoreFilesArray.includes(file))
   if (potentialHarmfulChangesArray.length > 0) {
     console.warn(`Harmless Changes: there are ${potentialHarmfulChangesArray.length} potentially harmful changes. Better Test!`)
-    process.exit(1)
-  } else console.warn(`Harmless Changes: there are no harmful changes. Moving on!`)
+    return errorCallback()
+  } else return console.warn(`Harmless Changes: there are no harmful changes. Moving on!`)
 }

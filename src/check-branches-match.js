@@ -5,16 +5,15 @@
   - check if the git branch matches the ci branch
 */
 
-module.exports = (gitBranch, ciBranch) => {
-  console.log('Test 1: ', gitBranch, ciBranch)
+module.exports = (gitBranch, ciBranch, errorCallback) => {
   if (typeof gitBranch === 'undefined') {
     console.error(`Harmless Changes: ${gitBranch} is undefined.`)
-    process.exit(1)
+    return errorCallback()
   } else if (typeof ciBranch === 'undefined') {
     console.error(`Harmless Changes: ${ciBranch} is undefined.`)
-    process.exit(1)
+    return errorCallback()
   } else if (gitBranch === ciBranch) {
     console.error(`Harmless Changes: The git branch ${gitBranch} matches the ci branch ${ciBranch}. Better Test!`)
-    process.exit(1)
-  } else console.warn(`Harmless Changes: The git branch ${gitBranch} does not match the ci branch ${ciBranch}. Moving on!`)
-} 
+    return errorCallback()
+  } else return console.warn(`Harmless Changes: The git branch ${gitBranch} does not match the ci branch ${ciBranch}. Moving on!`)
+}
