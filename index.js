@@ -14,15 +14,3 @@ generateArray('cat .ciignore', (arr) => {
     checkForHarmfulChanges(gitChangesArr, ciignoreArr)
   })
 })
-
-
-
-
-
-
-
-
-
-
-
-
