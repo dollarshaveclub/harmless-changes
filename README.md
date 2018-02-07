@@ -1,8 +1,6 @@
 # Harmless Changes
 
-Harmless changes is a simple bash script that helps ignore unneeded build steps if code changes are harmless. This utility can speed up CI build times! 🏎 💨
-
-⚠️  **NOTE:** This code is currently untested. Tests are in progress! 
+Harmless changes is a simple script that helps ignore unneeded build steps if code changes are harmless. This utility can speed up CI build times! 🏎 💨
 
 ---
 
@@ -18,26 +16,28 @@ Harmless changes is a simple bash script that helps ignore unneeded build steps 
 
 ## Summary
 
-CI build steps can test many things, but what if the Pull Request to a `master` branch contains only for changes to a repository's README or a slight change to an image? Harmless Changes checks if the **only** changes that were made within a Pull Request were for items that can be ignored in CI via a `.ciingore` file. CI build steps can be exited if the Harmless Changes script finds that only files within the `.ciignore` file were ignored.
+CI build steps can test many things, but what if the Pull Requests to a `master` (or another default) branch contain only for changes to a repository's README or a slight change to an image? Harmless Changes checks if the **only** changes that were made within a Pull Request were for items that can be ignored in CI via a `.ciingore` file. CI build steps can be exited if the Harmless Changes script finds that only files within the `.ciignore` file were ignored.
 
 ----
 
 ## Install
 
-Clone:
-```
-git clone git@github.com:dollarshaveclub/harmless-changes.git
-```
-NPM 
+**NPM** 
 ```
 npm i harmless-changes --save-dev
+```
+
+**Clone**
+This can help to use the bash script (which is untested).
+```
+git clone git@github.com:dollarshaveclub/harmless-changes.git
 ```
 
 ----
 
 ## Use
 
-The documentation below provides steps to using harmless changes
+The documentation below provides steps to using harmless changes.
 
 ### Make a `.ciignore`
 
@@ -52,8 +52,16 @@ touch .ciignore
 
 With CI build steps in **[CircleCI]()** or **[Travis]()**, configure CI to work according to whether harmless exits with a 1 or 0.
 
-Add a script to run harmless changes, in example:
+#### Add a script to run harmless changes, in example:
 
+**In a script using NPM:**
+```bash
+if npx harmless-changes; then
+  exit 0
+fi
+```
+
+**In a script via Bash (bash setup is untested):**
 ```bash
 if npx harmless-changes; then
   exit 0
@@ -72,7 +80,7 @@ if ./harmless-changes.sh; then
 fi
 ```
 
-CI will/can now exit if only harmless changes were made.
+CI will/can now exit if only harmless changes were made!
 
 ----
 
