@@ -1,0 +1,8 @@
+{
+  "extends": [
+    "dollarshaveclub"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6
+  }
+}
