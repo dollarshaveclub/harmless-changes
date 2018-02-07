@@ -27,9 +27,11 @@
   "homepage": "https://github.com/dollarshaveclub/harmless-changes#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.17.0",
     "eslint-config-dollarshaveclub": "^3.0.4",
-    "eslint-plugin-ember": "^5.0.3"
+    "eslint-plugin-ember": "^5.0.3",
+    "glob": "^7.1.2"
   }
 }
