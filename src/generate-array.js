@@ -8,12 +8,11 @@ module.exports = (command, callback) => {
       console.error(text.toString())
       console.error(stderr.toString())
       process.exit(1)
-    } else {
-      // convert .ciignore to Array
-      const arr = text.split(/\n/)
-      // remove extra item
-      arr.pop()
-      callback(arr)
     }
+    // convert .ciignore to Array
+    const arr = text.split(/\n/)
+    // remove extra item
+    arr.pop()
+    callback(arr)
   })
 }

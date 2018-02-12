@@ -6,13 +6,14 @@ const ciIgnoreFile = process.env.CIIGNOREFILE || '.ciignore'
 const gitBranch = process.env.GITBRANCH || 'master'
 const ciBranch = process.env.CIBRANCH
 
-const exit = () => process.exit(1)
+const exitStub = () => process.exit(1)
 
 generateArray(`cat ${ciIgnoreFile}`, (arr) => {
   const ciignoreArr = arr
   generateArray(`git diff-tree --no-commit-id --name-only -r origin/${gitBranch}..HEAD`, (arr) => {
     const gitChangesArr = arr
-    checkBranchesMatch(gitBranch, ciBranch, exit)
-    checkForHarmfulChanges(gitChangesArr, ciignoreArr, exit)
+    checkBranchesMatch(gitBranch, ciBranch, exitStub)
+    checkForHarmfulChanges(gitChangesArr, ciignoreArr, exitStub)
   })
 })
+
