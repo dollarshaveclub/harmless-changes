@@ -1,11 +1,11 @@
 const checkBranchesMatch = require('../check-branches-match')
-const f = () => { expect(1).toBe(1) }
+const exitStub = () => { expect(1).toBe(1) }
 
 test('it should continue if branches don\'t match', (done) => {
-  checkBranchesMatch('master', 'not-master', f)
+  checkBranchesMatch('master', 'not-master', exitStub)
   done()
 })
 
 test('it should exit if branches match', () => {
-  checkBranchesMatch('master', 'master', f)
+  checkBranchesMatch('master', 'master', exitStub)
 })

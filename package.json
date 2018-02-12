@@ -11,7 +11,7 @@
     "harmless-changes-sh": "./index.sh",
     "harmless-changes": "node ./index.js",
     "eslint": "eslint . --fix",
-    "test": "jest --coverage"
+    "test": "CIBRANCH=😔 jest --coverage"
   },
   "repository": {
     "type": "git",

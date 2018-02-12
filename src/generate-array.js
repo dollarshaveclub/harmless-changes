@@ -1,18 +1,16 @@
-const exec = require('child_process').exec
+const util = require('util')
+const exec = util.promisify(require('child_process').exec)
 
-module.exports = (command, callback) => {
-  exec(command, (err, text, stderr) => {
-    if (err) {
-      console.error(`Harmless Changes: error when reading ${command}. See logs below.`)
-      console.error(err.stack)
-      console.error(text.toString())
-      console.error(stderr.toString())
-      process.exit(1)
-    }
+module.exports = async function(cmd, exitStub) {
+  try {
+    const { stdout } = await exec(cmd)
     // convert .ciignore to Array
-    const arr = text.split(/\n/)
+    const arr = stdout.split(/\n/)
     // remove extra item
     arr.pop()
-    callback(arr)
-  })
+    return arr
+  } catch(e) {
+    console.error(`Harmless Changes: error when reading ${cmd}.`)
+    return exitStub()
+  }
 }
