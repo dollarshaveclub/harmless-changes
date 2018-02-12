@@ -8,12 +8,12 @@ const ciBranch = process.env.CIBRANCH
 // the exit stub makes testing WAY easier
 const exitStub = () => process.env.EXITSTUB || process.exit(1)
 
-async function HarmlessChanges() {
-  const ciignoreArr =  await generateArray(
+async function harmlessChanges () {
+  const ciignoreArr = await generateArray(
     `cat ${ciIgnoreFile}`, exitStub)
   const gitChangesArr = await generateArray(
     `git diff-tree --no-commit-id --name-only -r origin/${gitBranch}..HEAD`, exitStub)
   checkBranchesMatch(gitBranch, ciBranch, exitStub)
   checkForHarmfulChanges(gitChangesArr, ciignoreArr, exitStub)
 }
-
+harmlessChanges()

@@ -1,7 +1,7 @@
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 
-module.exports = async function(cmd, exitStub) {
+module.exports = async function generateArray (cmd, exitStub) {
   try {
     const { stdout } = await exec(cmd)
     // convert .ciignore to Array
@@ -9,7 +9,7 @@ module.exports = async function(cmd, exitStub) {
     // remove extra item
     arr.pop()
     return arr
-  } catch(e) {
+  } catch (e) {
     console.error(`Harmless Changes: error when reading ${cmd}.`)
     return exitStub()
   }

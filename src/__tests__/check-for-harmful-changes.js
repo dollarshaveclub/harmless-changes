@@ -35,7 +35,6 @@ test('it should exit if changedFilesArray is not an array', () => {
   const changedFilesArray = 'not an array'
   const ciignoreFilesArray = [0, 1, 2, 3]
   checkForHarmfulChanges(changedFilesArray, ciignoreFilesArray, exitStub)
-  expect(1 === 1)
 })
 
 test('it should exit if ciignoreFilesArray is not 0 after filtering', () => {
