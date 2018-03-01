@@ -30,10 +30,8 @@
   },
   "homepage": "https://github.com/dollarshaveclub/harmless-changes#readme",
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.39",
     "@babel/core": "^7.0.0-beta.39",
     "@babel/preset-env": "^7.0.0-beta.39",
-    "babel-cli": "^6.26.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^22.2.0",
     "babel-polyfill": "^6.26.0",
