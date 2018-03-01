@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "dollarshaveclub"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "env": {
+    "jasmine": true,
+    "jest": true
+  }
+}

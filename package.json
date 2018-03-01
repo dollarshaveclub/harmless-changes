@@ -1,13 +1,17 @@
 {
   "name": "harmless-changes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Helps ignore unnecessary CI build steps if changes are harmless",
   "main": "index.sh",
   "bin": {
-    "harmless-changes": "./index.sh"
+    "harmless-changes": "node ./index.js",
+    "harmless-changes-sh": "./index.sh"
   },
   "scripts": {
-    "harmless-changes": "./index.sh" 
+    "harmless-changes-sh": "./index.sh",
+    "harmless-changes": "node ./index.js",
+    "eslint": "eslint . --fix",
+    "test": "CIBRANCH=😔 jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -25,5 +29,23 @@
     "url": "https://github.com/dollarshaveclub/harmless-changes/issues"
   },
   "homepage": "https://github.com/dollarshaveclub/harmless-changes#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/preset-env": "^7.0.0-beta.39",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^22.2.0",
+    "babel-polyfill": "^6.26.0",
+    "codecov": "^3.0.0",
+    "eslint": "^4.17.0",
+    "eslint-config-dollarshaveclub": "^3.0.4",
+    "eslint-plugin-ember": "^5.0.3",
+    "jest": "^22.1.4",
+    "minimatch": "^3.0.4",
+    "regenerator-runtime": "^0.11.1"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ]
+  }
 }

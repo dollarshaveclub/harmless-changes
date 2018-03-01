@@ -5,6 +5,8 @@
 # ---
 # exits early if only 'harmless changes' were made
 
+echo "Harmless Changes: harmless-changes.sh is untested. It 'should' work. File an issue, submit a Pull Request or use the JavaScript version!"
+
 if [ -z "$1" ]    
   then    
   BRANCH = "master"
